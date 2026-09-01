@@ -1,0 +1,132 @@
+AEOLUS AVIONICS – TASK 2
+COMMUNICATION ARCHITECTURE
+
+Selected Systems:
+    RC + Telemetry - 2.4 GHz ExpressLRS
+    Video          - DJI O3 Air Unit
+
+
+
+
+
+
+> RC AND TELEMETRY
+
+A 2.4 GHz ExpressLRS receiver is used for RC control.
+
+
+A separate Telemetry radio is not required as the same ELRS supports for MAVLink Telemetry. Hence, we save on power and weight
+
+The receiver is connected to a UART on the Pixhawk 6C Mini.
+
+Receiver TX -> Pixhawk RX
+Receiver RX -> Pixhawk TX
+5 V -> 5 V
+GND -> GND
+
+The serial connection uses CRSF for normal ELRS operation.
+
+For this mission, a target range of around 3–5 km LOS is considered sufficient. 
+ELRS can provide much higher range in suitable conditions, so the selected range gives a plausible operating margin.
+
+
+
+
+
+
+
+> VIDEO TRANSMISSION
+
+The DJI O3 Air Unit is selected for live video transmission.
+
+The O3 has a dedicated digital Video link with its own camera, hence, it doesn't depend on external video processing 
+and transmission.
+
+
+The O3 Air Unit is connected to the main battery through the power
+system. Its input range is 7.4–26.4 V, so it is compatible with the
+selected 4S LiPo battery.
+
+The O3 uses a separate 5.8 GHz transmission band, keeping the video
+link separate from the 2.4 GHz ELRS control-telemetry link.
+
+The O3 has a manufacturer-rated maximum video transmission range of
+up to 10 km under FCC conditions. For our design, the intended operating range is around 3–5 km.
+
+
+
+
+
+
+
+
+> POWER
+
+The communication system is powered from the main battery through
+the drone's power distribution/power module.
+
+No separate battery is planned for Task 2 in the initial design.
+
+Estimated Task 2 power consumption during normal operation:
+
+	ELRS: 0.5-0.75W
+	O3 Camera module: ~15w
+	
+
+    	TOTAL ~16 W
+
+The exact consumption will vary with transmission conditions and
+operating mode, so 16 W is used as a representative value.
+
+
+
+
+
+
+> WEIGHT
+
+Estimated communication-system weight:
+
+
+	O3 Unit along with wiring: ~40g
+	ELRS receiver + antenna: ~5g
+	Mounts and Wiring: ~5g
+
+	TOTAL   ~50 g
+
+
+
+
+
+
+> Clarifications over PPM, PWM, CRSF, etc
+
+Digital Communication provides better reliability and allows multiple channel communication - RC, Telemetry, etc - over a single link.
+Though analog systems are simpler, they are prone to interference and not very flexible.
+Here we are using CRSF protocol with ELRS to establish a stable, fast and efficient connection.
+One of the other reasons for not using Analog systems is due to mismatch of PPM/PWM; digital systems have almost no mismatches.
+
+
+
+
+
+
+> FINAL COMMUNICATION ARCHITECTURE
+
+RC Control: 2.4 GHz ExpressLRS
+
+Telemetry:  MAVLink over the same ELRS link
+
+Flight Controller Interface:  UART using TX/RX
+
+Video:  DJI O3 Air Unit
+
+Video Link:  5.8 GHz digital transmission
+
+Power:   Main 4S LiPo through the power system
+
+Estimated weight:  ~50 g
+
+Estimated power:   ~16 W
+
+Target operating range:  ~3–5 km LOS

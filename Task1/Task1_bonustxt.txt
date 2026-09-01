@@ -1,0 +1,32 @@
+AEOLUS AVIONICS – TASK 1 BONUS
+CAMERA ORIENTATION and ALTERNATIVE BUILD
+
+
+> CAMERA ORIENTATION
+
+The OAK-D Lite will be mounted at the front of the drone, facing
+forward along the direction of flight.
+
+The camera will be kept pretty much horizontal with a small
+downward tilt. This gives a useful view of both the area ahead and
+the ground below the drone.
+
+The Stereo Cameras should be strictly horizontal, away from any propellers, and if possible, far away from motors, for added 
+stability.
+
+
+
+
+
+
+>  ALTERNATIVE BUILD
+
+OAK-D camera + NVIDIA Jetson Orin Nano.
+
+
+The camera handles the main vision and AI processing, while the
+Jetson handles higher-level navigation and detection tasks.
+
+This build can be considered due to its high computational power and more headroom, main downside being its power consumption and cost.
+
+This Build is best suited for Detection and Navigation Heavy workload more than a balanced flight.

@@ -1,0 +1,162 @@
+AEOLUS AVIONICS – TASK 3
+PROPULSION SYSTEM
+
+Selected Configuration:
+
+    Frame       - 10-inch quadcopter
+    Motors      - 4 × Holybro S500 V2 2216-920KV
+    Propellers  - 4 × Pro-Range 1045 (10 × 4.5)
+    ESCs        - 4 × 30 A
+    Battery     - 4S 5000 mAh 30C LiPo
+
+
+
+
+
+> WEIGHT CALCULATION
+
+The estimated dry weight of the drone ( the frame, motors, propellers and ESCs ) is:
+    ~950 g
+
+Task 1 sensing system:  ~120 g
+
+Task 2 communication system:  ~50 g
+
+Battery:  ~500 g ( conservative and most common weight for a 4S battery )
+
+Estimated total:
+
+    950 + 120 + 50 + 500
+    = 1620 g
+
+If we consider other components, like wiring, mounts, connectors, the weight will roughly add upto 1700g
+
+Design AUW is approximately:  ~1.7 kg
+
+The task says the max weight is 2.5kg, so we are left with approx. 0.8kg as headroom and can be used for future upgrades.
+
+
+
+
+
+
+> MOTOR AND PROPELLER SELECTION
+
+The specified motor is the Holybro S500 V2 2216-920KV-CCW, paired
+with 10 × 4.5 inch propellers.
+
+The four motors act as 4 independent sources of Thrust, all controlled by their individual ESCs, being powered by one big 4S Battery.
+
+
+
+
+
+> THRUST REQUIREMENT
+
+For a design AUW of approximately 1.7 kg, the total thrust required just to hover is approximately: 1.7 * g = 16.6N
+
+For each motor with the 10x4.5 prop:  1.7 / 4 * g = 4.16N     ( 425g thrust per motor )
+
+Therefore, each motor needs approximately: 4.16N thrust for hovering.
+
+
+According to the charts for Motor and Prop config:
+30% throttle → ~215 g thrust → 23.5 W
+50% throttle → ~470 g thrust → 61.5 W
+100% throttle → ~1367 g thrust → 277 W
+
+So the drone uses approximate 50% of throttle for stable hovering.
+
+When we consider additional thrust requirements for phases like climbing, fast acceleration and movement, the motors would give out more power, consuming higher energy, hence, we will be choosing a propulsion system that has enough headroom for the above.
+
+
+
+
+
+
+> ESC SELECTION
+
+Four 30 A ESCs are used, one for each motor.
+
+Total rated ESC current:  4 × 30A = 120A
+
+The motor's maximum tested power is ~277 W at 4S ( per motor ); Current draw would be  ~18.7A per motor.
+With a 1.5× safety margin: 18.7 × 1.5 = ~28 A, so a 30 A ESC per motor is selected for sufficient current headroom.
+
+
+
+
+
+
+> BATTERY SELECTION
+
+A 4S 5000 mAh LiPo battery is selected.
+
+Nominal voltage: 14.8 V
+Nominal battery energy: 14.8 V × 5 Ah = 74 Wh
+Battery rating: 30C
+
+Maximum theoretical continuous current: 5 Ah × 30C = 150 A
+
+Sum of all ESC ratings: 4 × 30 A = 120 A
+Average motor current: ~19 A per motor
+Total average motor current: 19 × 4 ≈ 76 A
+
+The 150 A battery rating provides sufficient current headroom above the estimated ~76 A motor current.
+The 30 A ESC rating also provides current headroom for each individual motor during heavy load conditions such as acceleration and climbing.
+
+
+
+
+
+> POWER and ENDURANCE
+
+Estimated power consumption during the stable part of flight:
+
+    Task 1 = ~10 W
+    Task 2 = ~16 W
+    Propulsion:
+	Using each motor thrust 4.16N and comparing it with the official power charts of the motors, each motor will use approx. 58W.
+	Total: 58W x 4 = 232W
+
+
+Total: 
+    10 + 16 + 232 = 258 W
+
+Rounding to 260 W (Upper safer side)
+
+Battery energy:  14.8V x 5Ah = 74Wh
+
+Using 80% of the nominal battery capacity as usable energy (20% as reserve): 74 × 0.8 = 59.2 Wh
+
+Estimated endurance: 59.2 / 260 × 60 = ~13.5 minutes
+Roughly 13.5 min of flight time.
+
+This is above the required 12 minute minimum endurance.
+
+
+
+
+
+
+
+> FINAL CONFIGURATION
+
+Motors:  4 × Holybro S500 V2 2216-920KV
+
+Propellers:  4 × 10 × 4.5
+
+ESC:
+    4 × 30 A
+    120 A combined rated capacity
+
+Battery:
+    4S 5000 mAh 30C LiPo
+    ~74 Wh nominal energy
+    ~500 g estimated weight
+
+Estimated total system power:  ~260 W
+
+Estimated practical endurance: ~13.5 min
+
+

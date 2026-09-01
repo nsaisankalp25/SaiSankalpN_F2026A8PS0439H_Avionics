@@ -1,0 +1,99 @@
+AEOLUS AVIONICS – TASK 1
+AUTONOMOUS ARCHITECTURE
+
+Selected Build: BUILD 2
+Sensor: OAK-D Lite + AI
+Flight Computer: Raspberry Pi 5, 8 GB RAM
+
+
+> BUILD SELECTION and WEIGHTAGE
+
+Build 2 was selected based on mission suitability, power consumption,
+computational capability, weight and cost.
+
+Our main priority is to get enough sensing and computing capability
+without using too much of the drone's power and weight budget.
+
+Weightage used:
+
+    Mission Suitability - 30%
+    Power Consumption   - 25%
+    Compute Capability  - 20%
+    Weight              - 15%
+    Cost                - 10%
+
+
+
+
+> SENSORS and COMPUTATIONAL CAPABILITY
+
+The OAK-D Lite is used for depth and visual sensing, connected to Rasp Pi as the companion computer on board.
+The OAK-D Lite has onboard processing capabilities for depth, vision and AI workloads.
+This thus reduces the load for Rasp Pi, allowing Pi to handle other computational tasks like path navigation, etc with ease
+
+OAK-D Lite and Rasp Pi 5 each handle their own share of work, and maintain a good balance of power consumption and computations.
+
+
+
+
+
+
+> POWER AND WEIGHT
+
+Estimated power consumption during normal flight:
+
+	Oak D Lite: about 1-5Watts
+	Rasp Pi: 3-12Watts
+
+	Taking Most probable values (Power consumption during most of its flight as representative):
+
+    ~10-12 Watts combined
+
+Estimated weight of OAK-D Lite + Raspberry Pi + wiring + mounts:
+
+	Rasp Pi: 60g
+	Oak D Lite: ~60g
+
+    ~120 g 
+
+
+
+
+
+
+> COMPARISON WITH OTHER BUILDS
+
+Build 1:
+Much Higher computational capability, at the cost of higher power consumption.
+
+Build 3:
+LiDAR is not well suited for this exact mission, as it is mainly suitable for distance measuring and environment scanning, rather than object identification and detection. LiDAR also sometimes struggles for depth perception on water bodies, hence, not very suitable for our mission
+
+Build 4:
+Similar to our chosen build, but the downside is it's computational capability is weak, as the camera module doesn't do much of 
+the workload, hence, Rasp Pi has to work harder, consuming more power.
+
+Build 5:
+Best computational capability and excellent detection/navigation, but the only downside is the huge power consumption, and it is slightly overkill for this mission where power availability is limited.
+
+
+
+
+
+
+>  Use Case Justification
+
+Build 2 is chosen as it is a balance of computational capability and power consumption.
+The Split workload leaves enough computational power on the Rasp Pi for added tasks/requirements.
+
+This keeps the system relatively light, power-efficient and
+cost-effective while still providing the required autonomous
+capability.
+
+Final selection:
+
+    OAK-D Lite + AI
+    Raspberry Pi 5, 8 GB RAM
+
+    Estimated weight: ~120 g
+    Estimated power: ~10-12 W
